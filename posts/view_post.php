@@ -24,6 +24,8 @@ if ($result->num_rows === 0) {
 }
 
 $post = $result->fetch_assoc();
+
+include '../includes/header.php';  // Include header
 ?>
 
 <h2><?php echo htmlspecialchars($post['title']); ?></h2>
@@ -32,5 +34,4 @@ $post = $result->fetch_assoc();
 
 <a href="../blog.php">⬅ Back to Blog</a>
 <?php if (isset($_SESSION['user_id'])): ?>
-    | <a href="../reports/report.php?post_id=<?php echo $post['id']; ?>" onclick="return confirm('Report this post?');">⚠️ Report</a>
-<?php endif; ?>
+    | <a href="../reports/report.php?post_id=<?php echo $post['id']; ?>" onclick_

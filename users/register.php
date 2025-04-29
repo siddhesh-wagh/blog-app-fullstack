@@ -44,9 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
+include '../includes/header.php';  // Include header
 ?>
 
-<!-- Simple registration form -->
 <h2>Register</h2>
 <form method="POST" action="">
     Username: <input type="text" name="username" required><br><br>
@@ -62,4 +63,6 @@ if (!empty($errors)) {
         echo "<p style='color:red;'>$err</p>";
     }
 }
+
+include '../includes/footer.php';  // Include footer
 ?>

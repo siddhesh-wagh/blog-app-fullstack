@@ -17,6 +17,9 @@ if (isset($_GET['delete'])) {
 // Get current user's posts
 $user_id = $_SESSION['user_id'];
 $result = $conn->query("SELECT * FROM posts WHERE user_id = $user_id ORDER BY created_at DESC");
+
+include 'includes/header.php';  // Include header
+
 ?>
 
 <h2>Welcome, <?php echo $_SESSION['username']; ?>!</h2>
@@ -32,3 +35,5 @@ $result = $conn->query("SELECT * FROM posts WHERE user_id = $user_id ORDER BY cr
         <a href="?delete=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure?')">🗑 Delete</a>
     </div>
 <?php endwhile; ?>
+
+<?php include 'includes/footer.php';  // Include footer ?>

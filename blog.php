@@ -9,6 +9,8 @@ $result = $conn->query("
     WHERE posts.reported = 0
     ORDER BY posts.created_at DESC
 ");
+
+include 'includes/header.php';  // Include header
 ?>
 
 <h2>All Blog Posts</h2>
@@ -35,3 +37,5 @@ $result = $conn->query("
         <?php endif; ?>
     </div>
 <?php endwhile; ?>
+
+<?php include 'includes/footer.php';  // Include footer ?>

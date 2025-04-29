@@ -29,3 +29,12 @@ if ($stmt->num_rows === 0) {
 
 header("Location: ../blog.php");
 exit;
+
+include '../includes/header.php';  // Include header
+?>
+
+<h2>Report Submitted</h2>
+<p>Thank you for reporting this post. It will be reviewed by an admin.</p>
+<a href="../blog.php">Go back to the blog page</a>
+
+<?php include '../includes/footer.php';  // Include footer ?>

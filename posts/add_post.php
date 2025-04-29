@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "All fields are required.";
     }
 }
+
+include '../includes/header.php';  // Include header
 ?>
 
 <h2>Create New Blog Post</h2>
@@ -36,3 +38,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </form>
 
 <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
+
+<?php include '../includes/footer.php';  // Include footer ?>

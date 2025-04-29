@@ -28,9 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $stmt->close();
 }
+
+include '../includes/header.php';  // Include header
 ?>
 
-<!-- Simple login form -->
 <h2>Login</h2>
 <form method="POST" action="">
     Username: <input type="text" name="username" required><br><br>
@@ -44,4 +45,6 @@ if (!empty($errors)) {
         echo "<p style='color:red;'>$err</p>";
     }
 }
+
+include '../includes/footer.php';  // Include footer
 ?>
