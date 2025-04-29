@@ -1,8 +1,9 @@
 <?php
-include 'auth.php'; // ensure user logged in
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// Check if user is admin
-if ($_SESSION['role'] !== 'admin') {
-    header("Location: /index.php");
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header("Location: /blog-app-fullstack/index.php");
     exit;
 }
