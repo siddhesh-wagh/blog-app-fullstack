@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Passwords do not match.";
     }
 
-    // Check if user/email exists
+    // Check for existing user
     $stmt = $conn->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
     $stmt->bind_param("ss", $username, $email);
     $stmt->execute();
@@ -30,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errors)) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
         $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $username, $email, $hashed_password);
         if ($stmt->execute()) {
@@ -45,24 +44,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-include '../includes/header.php';  // Include header
+include '../includes/header.php';
 ?>
 
-<h2>Register</h2>
-<form method="POST" action="">
-    Username: <input type="text" name="username" required><br><br>
-    Email: <input type="email" name="email" required><br><br>
-    Password: <input type="password" name="password" required><br><br>
-    Confirm Password: <input type="password" name="confirm_password" required><br><br>
-    <button type="submit">Register</button>
-</form>
+<div class="auth-container">
+    <h2>📝 Register</h2>
 
-<?php
-if (!empty($errors)) {
-    foreach ($errors as $err) {
-        echo "<p style='color:red;'>$err</p>";
-    }
-}
+    <?php if (!empty($errors)): ?>
+        <ul class="form-errors">
+            <?php foreach ($errors as $err): ?>
+                <li><?= htmlspecialchars($err) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 
-include '../includes/footer.php';  // Include footer
-?>
+    <form method="POST">
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <label>Confirm Password:</label><br>
+        <input type="password" name="confirm_password" required><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+<?php include '../includes/footer.php'; ?>
