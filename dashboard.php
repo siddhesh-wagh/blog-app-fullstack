@@ -21,7 +21,7 @@ if (isset($_GET['delete'])) {
 if (isset($_POST['request_admin']) && $_SESSION['role'] === 'user') {
     $user_id = $_SESSION['user_id'];
     $conn->query("UPDATE users SET admin_requested = 1 WHERE id = $user_id");
-    echo "<p style='color:green;'>✅ Request sent to admin!</p>";
+    $adminRequestMessage = "✅ Request sent to admin!";
 }
 
 // Get current user's posts
@@ -29,31 +29,43 @@ $user_id = $_SESSION['user_id'];
 $result = $conn->query("SELECT * FROM posts WHERE user_id = $user_id ORDER BY created_at DESC");
 ?>
 
-<h2>👋 Welcome, <?= htmlspecialchars($_SESSION['username']) ?>!</h2>
+<div class="page-dashboard content">
+    <h2>👋 Welcome, <?= htmlspecialchars($_SESSION['username']) ?>!</h2>
 
-<a href="posts/add_post.php">➕ Create New Post</a> |
-<a href="users/logout.php">🔒 Logout</a>
+    <?php if (!empty($adminRequestMessage)): ?>
+        <p class="success-message"><?= $adminRequestMessage ?></p>
+    <?php endif; ?>
 
-<?php if ($_SESSION['role'] === 'user'): ?>
-    <form method="POST" style="margin-top: 10px;">
-        <button type="submit" name="request_admin">🚀 Request Admin Access</button>
-    </form>
-<?php endif; ?>
+    <div class="dashboard-actions">
+        <a href="posts/add_post.php" class="btn">➕ Create New Post</a>
+        <a href="users/logout.php" class="btn logout">🔒 Logout</a>
+    </div>
 
-<hr>
+    <?php if ($_SESSION['role'] === 'user'): ?>
+        <form method="POST" class="admin-request-form">
+            <button type="submit" name="request_admin">🚀 Request Admin Access</button>
+        </form>
+    <?php endif; ?>
 
-<h3>Your Posts</h3>
-<?php if ($result->num_rows > 0): ?>
-    <?php while ($row = $result->fetch_assoc()): ?>
-        <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
-            <h4><?= htmlspecialchars($row['title']) ?></h4>
-            <p><?= substr(strip_tags($row['content']), 0, 100) . '...' ?></p>
-            <a href="posts/view_post.php?id=<?= $row['id'] ?>">👁 View</a> |
-            <a href="?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure?')">🗑 Delete</a>
+    <hr>
+
+    <h3>Your Posts</h3>
+    <?php if ($result->num_rows > 0): ?>
+        <div class="dashboard-posts">
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <div class="post-card">
+                    <h4><?= htmlspecialchars($row['title']) ?></h4>
+                    <p><?= substr(strip_tags($row['content']), 0, 100) . '...' ?></p>
+                    <div class="post-links">
+                        <a href="posts/view_post.php?id=<?= $row['id'] ?>">👁 View</a> |
+                        <a href="?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure?')">🗑 Delete</a>
+                    </div>
+                </div>
+            <?php endwhile; ?>
         </div>
-    <?php endwhile; ?>
-<?php else: ?>
-    <p>You haven't written any posts yet.</p>
-<?php endif; ?>
+    <?php else: ?>
+        <p>You haven't written any posts yet.</p>
+    <?php endif; ?>
+</div>
 
 <?php include 'includes/footer.php'; ?>
