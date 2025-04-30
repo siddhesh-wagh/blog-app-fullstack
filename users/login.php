@@ -29,22 +29,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
 }
 
-include '../includes/header.php';  // Include header
+include '../includes/header.php';
 ?>
 
-<h2>Login</h2>
-<form method="POST" action="">
-    Username: <input type="text" name="username" required><br><br>
-    Password: <input type="password" name="password" required><br><br>
-    <button type="submit">Login</button>
-</form>
+<div class="auth-container">
+    <h2>🔐 Login</h2>
+    
+    <?php if (!empty($errors)): ?>
+        <ul class="form-errors">
+            <?php foreach ($errors as $err): ?>
+                <li><?= htmlspecialchars($err) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 
-<?php
-if (!empty($errors)) {
-    foreach ($errors as $err) {
-        echo "<p style='color:red;'>$err</p>";
-    }
-}
+    <form method="POST" action="">
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br><br>
 
-include '../includes/footer.php';  // Include footer
-?>
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<?php include '../includes/footer.php'; ?>
