@@ -9,9 +9,8 @@ if (!isset($_GET['id'])) {
 
 $post_id = intval($_GET['id']);
 
-// Decide which query to use based on role
+// Query logic
 if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
-    // Admin sees everything
     $stmt = $conn->prepare("
         SELECT posts.*, users.username 
         FROM posts 
@@ -20,7 +19,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
     ");
     $stmt->bind_param("i", $post_id);
 } else {
-    // Regular users only see non-reported posts
     $stmt = $conn->prepare("
         SELECT posts.*, users.username 
         FROM posts 
@@ -42,15 +40,18 @@ $post = $result->fetch_assoc();
 include '../includes/header.php';
 ?>
 
-<h2><?php echo htmlspecialchars($post['title']); ?></h2>
-<p><em>By <?php echo htmlspecialchars($post['username']); ?> on <?php echo date('M d, Y', strtotime($post['created_at'])); ?></em></p>
-<div><?php echo nl2br(htmlspecialchars($post['content'])); ?></div>
+<div class="page-view-post content">
+    <h2><?= htmlspecialchars($post['title']) ?></h2>
+    <p class="post-meta"><em>By <?= htmlspecialchars($post['username']) ?> on <?= date('M d, Y', strtotime($post['created_at'])) ?></em></p>
 
-<p>
-  <a href="/blog-app-fullstack/blog.php">⬅ Back to Blog</a>
-  <?php if (isset($_SESSION['user_id']) && $_SESSION['role'] !== 'admin'): ?>
-    | <a href="/blog-app-fullstack/reports/report.php?post_id=<?php echo $post['id']; ?>" onclick="return confirm('Report this post?');">⚠️ Report</a>
-  <?php endif; ?>
-</p>
+    <div class="post-content"><?= nl2br(htmlspecialchars($post['content'])) ?></div>
+
+    <p class="post-actions">
+        <a href="/blog-app-fullstack/blog.php">⬅ Back to Blog</a>
+        <?php if (isset($_SESSION['user_id']) && $_SESSION['role'] !== 'admin'): ?>
+            | <a href="/blog-app-fullstack/reports/report.php?post_id=<?= $post['id'] ?>" onclick="return confirm('Report this post?');">⚠️ Report</a>
+        <?php endif; ?>
+    </p>
+</div>
 
 <?php include '../includes/footer.php'; ?>
