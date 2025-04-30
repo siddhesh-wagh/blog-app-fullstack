@@ -9,12 +9,10 @@ $errors  = [];
 $success = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Trim and collect POST data
     $name    = trim($_POST['name'] ?? '');
     $email   = trim($_POST['email'] ?? '');
     $message = trim($_POST['message'] ?? '');
 
-    // Validation
     if ($name === '') {
         $errors[] = "Name is required.";
     }
@@ -25,16 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Message cannot be empty.";
     }
 
-    // If no errors, insert into contacts table
     if (empty($errors)) {
-        $stmt = $conn->prepare("
-            INSERT INTO contacts (name, email, message)
-            VALUES (?, ?, ?)
-        ");
+        $stmt = $conn->prepare("INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $name, $email, $message);
         if ($stmt->execute()) {
             $success = true;
-            // Clear form values
             $name = $email = $message = '';
         } else {
             $errors[] = "Failed to send your message. Please try again later.";
@@ -44,31 +37,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<h2>📩 Contact Us</h2>
+<div class="page-contact content">
+    <h2>📩 Contact Us</h2>
 
-<?php if ($success): ?>
-    <p style="color:green;">Thank you, <?php echo htmlspecialchars($_POST['name']); ?>! Your message has been received.</p>
-<?php else: ?>
-    <?php if ($errors): ?>
-        <ul style="color:red;">
-            <?php foreach ($errors as $err): ?>
-                <li><?php echo htmlspecialchars($err); ?></li>
-            <?php endforeach; ?>
-        </ul>
+    <?php if ($success): ?>
+        <p class="success-message">Thank you, <?php echo htmlspecialchars($_POST['name']); ?>! Your message has been received.</p>
+    <?php else: ?>
+        <?php if ($errors): ?>
+            <ul class="error-messages">
+                <?php foreach ($errors as $err): ?>
+                    <li><?php echo htmlspecialchars($err); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+
+        <form method="POST" action="contact.php" class="contact-form">
+            <label>Name:</label>
+            <input type="text" name="name" value="<?php echo htmlspecialchars($name); ?>" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
+
+            <label>Message:</label>
+            <textarea name="message" rows="6" required><?php echo htmlspecialchars($message); ?></textarea>
+
+            <button type="submit">Send</button>
+        </form>
     <?php endif; ?>
-
-    <form method="POST" action="contact.php">
-        <label>Name:</label><br>
-        <input type="text" name="name" value="<?php echo htmlspecialchars($name); ?>" required><br><br>
-
-        <label>Email:</label><br>
-        <input type="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required><br><br>
-
-        <label>Message:</label><br>
-        <textarea name="message" rows="6" cols="60" required><?php echo htmlspecialchars($message); ?></textarea><br><br>
-
-        <button type="submit">Send</button>
-    </form>
-<?php endif; ?>
+</div>
 
 <?php include 'includes/footer.php'; ?>
