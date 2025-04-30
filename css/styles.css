@@ -1,0 +1,685 @@
+/* =======================
+   CSS Sections Overview
+   =======================
+   Header Section (17 - 93)
+   Index Page Section (94 - 154)
+   Blog Page Section (155 - 223)
+   Contact Page Section (225 - 295)
+   Dashboard Page Section (296 - 384)
+   Add Post Page Section (385 - 438)
+   View Post Page Section (439 - 479)
+   Login Page Section (480 - 536)
+   Register Page Section (537 - 593)
+   Admin Page Section (595 - 662)
+   Footer Section (664 - 686)
+*/
+
+/* Header.php */
+/* Wrapper around the header for consistent styling */
+.header-wrapper {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+}
+
+/* Limit content width and center */
+.site-header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Flexbox layout: logo on left, links on right */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Logo styling */
+.logo .site-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+/* Navigation menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 15px; /* space between links */
+}
+
+/* Individual link styling */
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: #555;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* index.php */
+/* Home Page Content Styles */
+.page-home {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.page-home h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.page-home h2 {
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.page-home p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.page-home ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.page-home ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.page-home ul li::before {
+    content: "✔️";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.page-home hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin-top: 40px;
+}
+
+/* blog.php */
+/* Blog Page Container */
+.page-blog {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+/* Blog Navigation Links */
+.page-blog .blog-links {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.page-blog .blog-links a {
+    color: #2980b9;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.page-blog .blog-links a:hover {
+    text-decoration: underline;
+}
+
+/* Blog Card Layout */
+.blog-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.blog-card h3 {
+    margin: 0 0 10px;
+    color: #2c3e50;
+}
+
+.blog-card small {
+    color: #888;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.blog-card p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.blog-card a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.blog-card a:hover {
+    text-decoration: underline;
+}
+
+/* contact.php */
+/* Contact Page Styles */
+.page-contact {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+.page-contact h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #1c5980;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.error-messages {
+    color: red;
+    margin-bottom: 15px;
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+/* dashboard.php */
+/* Dashboard Page Styles */
+.page-dashboard {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.page-dashboard h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.dashboard-actions {
+    margin-bottom: 20px;
+}
+
+.dashboard-actions .btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.dashboard-actions .logout {
+    background-color: #e74c3c;
+}
+
+.dashboard-actions .btn:hover {
+    background-color: #2980b9;
+}
+
+.admin-request-form {
+    margin: 20px 0;
+}
+
+.admin-request-form button {
+    padding: 10px 15px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.admin-request-form button:hover {
+    background-color: #e67e22;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dashboard-posts .post-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.post-card h4 {
+    margin-top: 0;
+    color: #34495e;
+}
+
+.post-links {
+    margin-top: 10px;
+}
+
+.post-links a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.post-links a:hover {
+    text-decoration: underline;
+}
+
+/* add_post.php */
+/* Add Post Page Styles */
+.page-add-post {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.page-add-post h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.post-form label {
+    font-weight: bold;
+}
+
+.post-form input[type="text"],
+.post-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.post-form button {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.post-form button:hover {
+    background-color: #219150;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* view_post.php */
+/* View Post Page */
+.page-view-post {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.page-view-post h2 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.page-view-post .post-meta {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.page-view-post .post-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.page-view-post .post-actions a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.page-view-post .post-actions a:hover {
+    text-decoration: underline;
+}
+
+/* login.php */
+/* Login & Register Shared Auth Container */
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.auth-container label {
+    font-weight: bold;
+    color: #444;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.auth-container button:hover {
+    background-color: #2980b9;
+}
+
+.form-errors {
+    color: red;
+    margin-bottom: 15px;
+    padding-left: 0;
+}
+
+.form-errors li {
+    list-style: none;
+}
+
+/* register.php */
+.auth-container {
+    max-width: 420px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.auth-container label {
+    font-weight: bold;
+    color: #444;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.auth-container button:hover {
+    background-color: #27ae60;
+}
+
+.form-errors {
+    color: red;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.form-errors li {
+    list-style: none;
+}
+
+/* admin.php */
+/* admin.css */
+.admin-container {
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab-buttons button {
+    padding: 12px 20px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    background: #f1f1f1;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .tab-buttons button:hover {
+    background: #e0e0e0;
+  }
+  
+  .tab { display: none; }
+  .tab.active { display: block; margin-top: 20px; }
+  
+  .reported-post {
+    border: 1px solid #f39c12;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-message small {
+    color: #777;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  table th, table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #f4f4f4;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  ul li {
+    margin: 10px 0;
+  }
+  
+/* footer.php */
+/* Ensure the footer sticks at the bottom */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wrap the footer in a container to control its position */
+.footer-container {
+    margin-top: auto; /* This pushes the footer to the bottom */
+    width: 100%;
+}
+
+/* Footer styling */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
