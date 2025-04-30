@@ -10,28 +10,43 @@ $base = '/blog-app-fullstack'; // This must match your browser URL
 <head>
     <meta charset="UTF-8">
     <title>Blog-Post-Fullstack</title>
-    <link rel="stylesheet" href="<?php echo $base; ?>/style.css">
+    <!-- Link to the stylesheets -->
+    <link rel="stylesheet" href="<?php echo $base ? $base : ''; ?>/css/styles.css">
+
 </head>
 <body>
 
-<nav style="background:#333; padding:10px;">
-    <a href="<?php echo $base; ?>/index.php" style="color:white; margin-right:10px;">🏠 Home</a>
-    <a href="<?php echo $base; ?>/blog.php" style="color:white; margin-right:10px;">📰 Blogs</a>
 
-    <?php if (isset($_SESSION['user_id'])): ?>
-        <a href="<?php echo $base; ?>/dashboard.php" style="color:white; margin-right:10px;">📋 Dashboard</a>
-        <a href="<?php echo $base; ?>/users/logout.php" style="color:white; margin-right:10px;">🔒 Logout</a>
+<!-- Header Section -->
+<div class="header-wrapper">
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="<?php echo $base; ?>/index.php" class="site-title">Blog-Post-Fullstack</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="<?php echo $base; ?>/index.php">🏠 Home</a></li>
+                    <li><a href="<?php echo $base; ?>/blog.php">📰 Blogs</a></li>
 
-        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-            <a href="<?php echo $base; ?>/admin/admin.php" style="color:white;">🛠 Admin</a>
-        <?php endif; ?>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <li><a href="<?php echo $base; ?>/dashboard.php">📋 Dashboard</a></li>
+                        <li><a href="<?php echo $base; ?>/users/logout.php">🔒 Logout</a></li>
 
-    <?php else: ?>
-        <a href="<?php echo $base; ?>/users/login.php" style="color:white; margin-right:10px;">🔐 Login</a>
-        <a href="<?php echo $base; ?>/users/register.php" style="color:white; margin-right:10px;">📝 Register</a>
-    <?php endif; ?>
+                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                            <li><a href="<?php echo $base; ?>/admin/admin.php">🛠 Admin</a></li>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <li><a href="<?php echo $base; ?>/users/login.php">🔐 Login</a></li>
+                        <li><a href="<?php echo $base; ?>/users/register.php">📝 Register</a></li>
+                    <?php endif; ?>
 
-    <a href="<?php echo $base; ?>/contact.php" style="color:white; margin-left:10px;">📩 Contact</a>
-</nav>
+                    <li><a href="<?php echo $base; ?>/contact.php">📩 Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</div>
 
+<!-- Main Content Starts -->
 <div style="padding:20px;">
