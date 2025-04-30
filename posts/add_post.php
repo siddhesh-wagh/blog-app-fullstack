@@ -26,17 +26,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-include '../includes/header.php';  // Include header
+include '../includes/header.php';
 ?>
 
-<h2>Create New Blog Post</h2>
-<form method="POST">
-    Title: <input type="text" name="title" required><br><br>
-    Content:<br>
-    <textarea name="content" rows="8" cols="60" required></textarea><br><br>
-    <button type="submit">Publish</button>
-</form>
+<div class="page-add-post content">
+    <h2>📝 Create New Blog Post</h2>
 
-<?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
+    <?php if (isset($error)): ?>
+        <p class="error-message"><?= htmlspecialchars($error) ?></p>
+    <?php endif; ?>
 
-<?php include '../includes/footer.php';  // Include footer ?>
+    <form method="POST" class="post-form">
+        <label>Title:</label><br>
+        <input type="text" name="title" required><br><br>
+
+        <label>Content:</label><br>
+        <textarea name="content" rows="8" cols="60" required></textarea><br><br>
+
+        <button type="submit">📤 Publish</button>
+    </form>
+</div>
+
+<?php include '../includes/footer.php'; ?>
