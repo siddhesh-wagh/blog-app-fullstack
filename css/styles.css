@@ -662,24 +662,43 @@
   }
   
 /* footer.php */
-/* Ensure the footer sticks at the bottom */
-body, html {
+/* Ensure full height and footer at the bottom */
+html, body {
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: Arial, sans-serif;
 }
 
-/* Wrap the footer in a container to control its position */
+/* Main content wrapper */
+.main-content {
+    flex: 1;
+}
+
+/* Footer container pushes footer to bottom */
 .footer-container {
-    margin-top: auto; /* This pushes the footer to the bottom */
+    margin-top: auto;
     width: 100%;
 }
 
 /* Footer styling */
 footer {
-    background: #333;
-    color: white;
+    background: #222;          /* Dark background */
+    color: #eee;               /* Light text */
     text-align: center;
-    padding: 10px;
+    padding: 12px 20px;
+    font-size: 14px;
 }
+
+/* Neutral link style in footer */
+footer a {
+    color: inherit;           /* Same color as parent (no blue) */
+    text-decoration: none;    /* No underline */
+    font-weight: normal;
+}
+
+footer a:hover {
+    text-decoration: underline;  /* Optional: underline on hover */
+}
+
