@@ -6,14 +6,14 @@ A feature-rich blog platform built with **Core PHP** and **MySQL**, supporting u
 
 ## 🚀 Features
 
-✨ User registration & secure login
-🛡️ Password hashing (bcrypt)
-📝 Create, Read, Update, Delete (CRUD) blog posts
-🚨 Report inappropriate posts
-🧑‍💼 Admin dashboard for post & user management
-📬 Contact form with message logging
-🔁 Admin role request & approval flow
-📱 Fully responsive design with Bootstrap
+* ✨ **User registration & secure login**
+* 🛡️ **Password hashing (bcrypt)**
+* 📝 **Create, Read, Update, Delete (CRUD) blog posts**
+* 🚨 **Report inappropriate posts**
+* 🧑‍💼 **Admin dashboard for post & user management**
+* 📬 **Contact form with message logging**
+* 🔁 **Admin role request & approval flow**
+* 📱 **Fully responsive design with Bootstrap**
 
 ---
 
