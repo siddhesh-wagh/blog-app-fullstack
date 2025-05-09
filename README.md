@@ -116,11 +116,18 @@ blog_post_fullstack/
 ✅ Actions gated by **role-based access control**
 
 ---
-
-## 📬 Contact
-
-For questions or feedback, feel free to open an issue or email the maintainer.
+Here’s your updated `README.md` section with your email in the **Contact** section and a portfolio link added to the **credit line**:
 
 ---
 
-> Crafted with ❤️ by **Siddhesh Wagh** using Core PHP and MySQL
+## 📬 Contact
+
+For questions, feedback, or collaboration inquiries, feel free to reach out:
+📧 **Email:** [siddhesh.01092004@gmail.com](mailto:siddhesh.01092004@gmail.com)
+
+---
+
+> Crafted with ❤️ by [**Siddhesh Wagh**](https://siddhesh-wagh.github.io/portfolio/) using Core PHP and MySQL
+
+---
+
