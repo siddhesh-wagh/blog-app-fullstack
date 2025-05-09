@@ -15,20 +15,28 @@ A full-featured blog web application with user authentication, role-based access
 
 ## 🛠️ Tech Stack
 
-**Frontend:**
-- HTML, CSS, JavaScript
-- Bootstrap (optional for UI components)
+### 💻 Frontend
 
-**Backend:**
-- PHP (Core PHP, no frameworks)
-- MySQL (MariaDB recommended)
+* **HTML5** – Markup used inside `.php` files for structuring pages
+* **CSS3** – Styling custom components (see `style.css`)
+* **JavaScript** – For client-side interactivity
+* **Bootstrap 5** *(CDN based)* – Responsive UI components and layout (optional but included)
 
-**Database:**
-- `blog_post_fullstack` with 4 core tables:
-  - `users`
-  - `posts`
-  - `reports`
-  - `contacts`
+### 🖥️ Backend
+
+* **PHP (Core PHP)** – Server-side scripting, no frameworks used
+* **MySQL / MariaDB** – Relational database management
+
+### 🗃️ Database
+
+**Database Name**: `blog_post_fullstack`
+
+**Core Tables**:
+
+* `users` – Stores user credentials, roles, and admin status
+* `posts` – Contains blog post data linked to users
+* `reports` – Tracks reported posts by users
+* `contacts` – Handles contact form submissions
 
 ## 📁 Folder Structure
 
