@@ -116,9 +116,7 @@ blog_post_fullstack/
 ✅ Actions gated by **role-based access control**
 
 ---
-Here’s your updated `README.md` section with your email in the **Contact** section and a portfolio link added to the **credit line**:
 
----
 
 ## 📬 Contact
 
