@@ -75,19 +75,35 @@ blog_post_fullstack/
 └── .htaccess                   # Optional: clean URLs, security
 ```
 
----
 ## 📸 Screenshots
 
 Here are some preview screenshots of the blog application:
 
-![Homepage](assets/screenshots/homepage.png)
-*Homepage with post listings*
+### 🏠 Home Page
+![Home1](assets/screenshots/home1.png)
+![Home2](assets/screenshots/home2.png)
+![Home3](assets/screenshots/home3.png)
 
+### 📖 Blog
+![Blog1](assets/screenshots/blog1.png)
+![Blog2](assets/screenshots/blog2.png)
+
+### 🔐 Authentication
+![Login](assets/screenshots/login.png)
+![Register](assets/screenshots/register.png)
+
+### 📬 Contact Page
+![Contact](assets/screenshots/contact.png)
+
+### 🧑‍💼 User Dashboard
 ![Dashboard](assets/screenshots/dashboard.png)
-*User dashboard for managing posts*
 
-![Admin Panel](assets/screenshots/admin_panel.png)
-*Admin control panel for managing users and posts*
+### 🛠️ Admin Panel
+![Admin1](assets/screenshots/admin1.png)
+![Admin2](assets/screenshots/admin2.png)
+
+---
+
 
 ---
 
