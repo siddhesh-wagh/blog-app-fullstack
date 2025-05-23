@@ -76,6 +76,20 @@ blog_post_fullstack/
 ```
 
 ---
+## 📸 Screenshots
+
+Here are some preview screenshots of the blog application:
+
+![Homepage](assets/screenshots/homepage.png)
+*Homepage with post listings*
+
+![Dashboard](assets/screenshots/dashboard.png)
+*User dashboard for managing posts*
+
+![Admin Panel](assets/screenshots/admin_panel.png)
+*Admin control panel for managing users and posts*
+
+---
 
 ## ⚙️ Setup Instructions
 
