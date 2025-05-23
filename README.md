@@ -196,14 +196,12 @@ A default admin account is available for quick access (only if imported with the
 > ✅ You are now ready to explore, modify, and enhance your blog platform!
 
 
-
 ## 🔒 Security
 
-✅ Passwords stored securely via **bcrypt hashing**
-✅ Admin routes protected via session middleware
-✅ Actions gated by **role-based access control**
+- ✅ Passwords are securely stored using **bcrypt hashing**
+- ✅ Admin routes are protected using **session-based middleware**
+- ✅ All sensitive actions are gated through **role-based access control (RBAC)**
 
----
 
 
 ## 📬 Contact
