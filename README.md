@@ -190,7 +190,9 @@ http://localhost/blog_post_fullstack/pages/index.php
 ### 6. Admin Access (Optional for Testing)
 
 A default admin account is available for quick access (only if imported with the original SQL file):
-
+* **Email:** `admin@gmail.com`
+* **Password:** `admin@123#`*(Reset or update via phpMyAdmin or UI)*
+* 
 > ✅ You are now ready to explore, modify, and enhance your blog platform!
 
 
